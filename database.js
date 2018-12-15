@@ -20,3 +20,7 @@ function getAllEmployees(req, res) {
                 });
         })
 }
+
+module.exports = {
+    getAllEmployees
+}
