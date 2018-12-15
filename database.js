@@ -20,14 +20,15 @@ function getAllEmployees(req, res) {
                 });
         })
 }
-function countSele(req, res) {
-    db.any(`select count title from employees where title ='Sales Representative'`)
+
+function countRedmond(req, res) {
+    db.any(`select count city from employees where city = 'Redmond'`)
         .then(function (data) {
             res.status(200)
                 .json({
                     status: 'success',
                     data: data,
-                    message: 'Retrieved ALL Title'
+                    message: 'Number is Redmond'
                 });
         })
         .catch(function (error) {
@@ -42,6 +43,5 @@ function countSele(req, res) {
 
 module.exports = {
     getAllEmployees,
-    countSele,
-
+    countRedmond
 }

@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.get('/api/employees/',db.getAllEmployees);
+app.get('/api/employees/countRedmond',db.countRedmond);
 
 app.get('/api/json', function (req, res) {
     res.status(500).json({
