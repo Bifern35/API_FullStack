@@ -20,7 +20,28 @@ function getAllEmployees(req, res) {
                 });
         })
 }
+function countSele(req, res) {
+    db.any(`select count title from employees where title ='Sales Representative'`)
+        .then(function (data) {
+            res.status(200)
+                .json({
+                    status: 'success',
+                    data: data,
+                    message: 'Retrieved ALL Title'
+                });
+        })
+        .catch(function (error) {
+            console.log('ERROR:', error)
+            res.status(500)
+                .json({
+                    status: 'failed',
+                    message: 'Failed to retrieved employees'
+                });
+        })
+}
 
 module.exports = {
-    getAllEmployees
+    getAllEmployees,
+    countSele,
+
 }
