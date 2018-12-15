@@ -20,28 +20,6 @@ function getAllEmployees(req, res) {
                 });
         })
 }
-
-function countRedmond(req, res) {
-    db.any(`select count city from employees where city = 'Redmond'`)
-        .then(function (data) {
-            res.status(200)
-                .json({
-                    status: 'success',
-                    data: data,
-                    message: 'Number is Redmond'
-                });
-        })
-        .catch(function (error) {
-            console.log('ERROR:', error)
-            res.status(500)
-                .json({
-                    status: 'failed',
-                    message: 'Failed to retrieved employees'
-                });
-        })
-}
-
 module.exports = {
-    getAllEmployees,
-    countRedmond
+    getAllEmployees
 }
